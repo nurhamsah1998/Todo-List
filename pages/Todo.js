@@ -37,21 +37,26 @@ export default function Todo() {
     axios.post('http://localhost:8000/posts', schema).then((res) => {
       server();
     });
+    setValue('');
   }
   function del(e) {
     axios.delete('http://localhost:8000/posts/' + e._id).then((res) => {
       server();
     });
   }
+
   return (
     <div className="m-10">
+      <div className="w-[700px] px-1 py-1 overflow-auto h-[500px] relative border-2 border-orange-700">
+        <div className=" mx-auto w-fit">
+          <List x={update} del={del} list={db} />
+        </div>
+      </div>
+
       <form onSubmit={e}>
         <input value={value} onChange={(e) => setValue(e.target.value)} className="border-2 p-2 w-[300px] border-emerald-500" placeholder="what do ypu wanna work with?" />
         <button className="p-2 ml-2 bg-emerald-500 font-bold text-white">ADD</button>
       </form>
-      <div>
-        <List x={update} del={del} list={db} />
-      </div>
     </div>
   );
 }

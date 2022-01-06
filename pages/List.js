@@ -30,7 +30,11 @@ export default function List({ list, x, edit, del }) {
             }
             return (
               <div className="flex justify-between items-center w-[500px] mt-5" key={i._id}>
-                <p>{i.name}</p>
+                <div>
+                  <p>{i.name}</p>
+                  <p className="text-[15px] text-slate-400">dikirim pada : {i.date}</p>
+                </div>
+
                 <div>
                   <button onClick={() => handleEdit(i)} className="py-1 px-2 ml-2 bg-emerald-400 rounded-lg font-bold text-white">
                     Modify
