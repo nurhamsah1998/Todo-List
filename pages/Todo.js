@@ -17,14 +17,15 @@ export default function Todo() {
     server();
   }, []);
 
-  function update(data) {
+  function update(i) {
     const schema = {
       id: 1 + Math.random(),
-      name: data.name,
+      name: i.name,
     };
-    axios.patch('http://localhost:8000/posts/' + data._id, schema).then((res) => {
+    axios.patch('http://localhost:8000/posts/' + i._id, schema).then((res) => {
       server();
     });
+    console.log(i);
   }
 
   function e(e) {

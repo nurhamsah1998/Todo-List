@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 export default function List({ list, x, edit, del }) {
   const [v, setV] = useState({});
-
   function handleEdit(d) {
     setV(d);
   }
